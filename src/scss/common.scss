@@ -1,1 +1,155 @@
 // Заголовки, загальні БЕМ блоки та інше...
+.divider {
+  margin: toRem(25) auto 0 auto;
+  width: toRem(60);
+  height: toRem(3);
+  background-color: var(--bg-primary);
+}
+
+.title {
+  font-weight: bold;
+  font-size: toRem(36);
+  line-height: toRem(50);
+  &__fz14 {
+    font-size: toRem(14);
+    line-height: toRem(21);
+  }
+  &__fz16 {
+    font-size: toRem(16);
+    line-height: toRem(24);
+    margin-bottom: 0;
+  }
+  &__fz20 {
+    font-size: toRem(20);
+    line-height: toRem(30);
+  }
+  &__fz48 {
+    margin-top: toRem(10);
+    font-size: toRem(48);
+    color: var(--text-secondary);
+    margin-bottom: 0;
+  }
+  &__section-title {
+    position: relative;
+    text-align: center;
+    @include before_circle;
+    &:before {
+      top: toRem(-6);
+      left: 50%;
+      transform: translate(-50%);
+    }
+  }
+  &__section-subtitle {
+    text-align: center;
+  }
+}
+
+.btn {
+  height: toRem(45);
+  background: var(--bg-primary);
+  box-shadow: 0px toRem(4) toRem(4) rgba(0, 0, 0, 0.15);
+  padding: toRem(15) toRem(25);
+}
+
+.hamburger {
+  position: absolute;
+  top: toRem(20);
+  right: toRem(30);
+  height: toRem(21);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  cursor: pointer;
+  span {
+    display: block;
+    width: toRem(30);
+    height: toRem(3);
+    background: var(--bg-secondary);
+  }
+  span.long {
+    width: toRem(36);
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.6s;
+  &.active {
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+  &__block {
+    position: relative;
+    padding-top: toRem(140);
+    padding-left: toRem(40);
+    width: toRem(345);
+    height: 100%;
+    background-color: var(--bg-primary);
+    cursor: pointer;
+    transition: all 0.6s;
+    z-index: 10;
+  }
+  &__close {
+    position: absolute;
+    top: toRem(25);
+    right: toRem(25);
+  }
+  &__list {
+    list-style: none;
+    padding-left: toRem(35);
+  }
+  &__link {
+    position: relative;
+    margin-bottom: toRem(15);
+    font-weight: bold;
+    font-size: toRem(24);
+    line-height: toRem(36);
+    &:before {
+      content: "";
+      position: absolute;
+      left: toRem(-35);
+      top: toRem(10);
+      width: toRem(15);
+      height: toRem(15);
+      border: toRem(1) solid var(--text-primary);
+      border-radius: 100%;
+      transition: 0.6s;
+    }
+    &:hover {
+      &:before {
+        background-color: var(--text-secondary);
+      }
+    }
+    a {
+      color: var(--text-secondary);
+    }
+  }
+  &__social {
+    position: absolute;
+    bottom: toRem(50);
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90px;
+  }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-secondary);
+    opacity: 0.65;
+  }
+}
