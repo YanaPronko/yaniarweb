@@ -1,0 +1,14 @@
+:root {
+  --primary: #0a9396;
+  --secondary: #94d2bd;
+  --accent: #0090c1;
+  --inverse: #ffff3f;
+  --bg-primary: #FFA501;
+  --bg-secondary: #151812;
+  --bg-accent: #4cc9f0;
+  --bg-inverse: #2d00f7;
+  --text-primary: #000000;
+  --text-secondary: #FFFFFF;
+  --text-accent: #e8eddf;
+  --text-inverse: #e8eddf;
+}
