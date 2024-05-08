@@ -534,13 +534,13 @@
 							</a>
 						</div>
 						<div class="title title__fz14 contacts__text">Или оставьте ваши данные и я сама вам напишу:</div>
-						<form action="#" class="contacts__form">
+						<form data-ajax action="files/sendmail/sendmail.php" method="POST" class="contacts__form form">
 							<div class="contacts__input">
-								<input required name="name" id="name" type="text" placeholder="Яна">
+								<input data-required data-validate data-error="Это обязательное поле" name="name" id="name" type="text" placeholder="Яна"  class="input">
 								<label for="name">Ваше имя</label>
 							</div>
 							<div class="contacts__input">
-								<input required name="email" id="email" type="email" placeholder="email@gmail.com">
+								<input data-required="email" data-validate data-error="Неверный email" name="email" id="email" type="email" placeholder="email@gmail.com" class="input">
 								<label for="email">Ваша почта</label>
 							</div>
 
@@ -551,7 +551,7 @@
 							<div class="contacts__triggers">
 								<button class="contacts__btn btn">Отправить сообщение</button>
 								<div class="contacts__policy">
-									<input required type="checkbox">
+									<input data-required="checkbox" data-error="Требуется ваше согласие" data-validate type="checkbox">
 									<span>Я согласен(а) с <a href="/policy.html" target="_blank" class="contacts__link-policy">политикой конфиденциальности</a></span>
 								</div>
 							</div>

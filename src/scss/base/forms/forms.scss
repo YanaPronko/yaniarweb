@@ -12,6 +12,8 @@
 	&__button {
 	}
 	&__error {
+		margin-top: toRem(5);
+		color: red;
 	}
 }
 //</FORM>
@@ -22,7 +24,7 @@
 
 // <INPUTS>
 // Сніппет (HTML): inp
-// @import "input";
+@import "input";
 
 // <CHECK>
 // Сніппет (HTML): chk

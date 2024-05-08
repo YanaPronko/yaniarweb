@@ -18,6 +18,7 @@ textarea {
 	&._form-focus {
 	}
 	&._form-error {
+		border: toRem(1) solid red;
 	}
 }
 .input[placeholder]:not([data-placeholder-nohiden]) {
