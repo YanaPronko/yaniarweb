@@ -141,9 +141,8 @@
   }
   &__social {
     position: absolute;
-    bottom: toRem(50);
-    left: 50%;
-    transform: translate(-50%);
+    top: toRem(29);
+    left: 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -160,3 +159,17 @@
   }
 }
 
+.social-link {
+  svg {
+    width: toRem(20);
+    height: toRem(20);
+    fill: var(--text-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      color: var(--text-secondary);
+      fill: var(--bg-primary);
+    }
+  }
+}
