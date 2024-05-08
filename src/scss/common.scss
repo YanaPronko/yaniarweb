@@ -46,9 +46,15 @@
 
 .btn {
   height: toRem(45);
+  padding: toRem(15) toRem(25);
+  text-align: center;
   background: var(--bg-primary);
   box-shadow: 0px toRem(4) toRem(4) rgba(0, 0, 0, 0.15);
-  padding: toRem(15) toRem(25);
+  border-radius: toRem(8);
+  transition: all 0.3s ease;
+  &:hover {
+    background: #f1bf61;
+  }
 }
 
 .hamburger {

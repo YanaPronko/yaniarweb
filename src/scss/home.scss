@@ -2,7 +2,7 @@
 .promo {
   min-height: 100vh;
   position: relative;
-  background: url("@img/bg.jpg") 50% / cover no-repeat;
+  background: url('@img/bg.jpg') 50% / cover no-repeat;
   padding-top: 205px;
   &__subtitle {
     position: relative;
@@ -59,6 +59,20 @@
       width: toRem(150);
     }
   }
+  &__link {
+    svg {
+      width: toRem(20);
+      height: toRem(20);
+      fill: var(--text-primary);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      &:hover {
+        color: var(--bg-primary);
+        fill: var(--bg-primary);
+      }
+    }
+  }
 }
 //====================================================================================================
 
@@ -91,23 +105,27 @@
     padding: toRem(1) 0 0 toRem(12);
     @include before_circle;
   }
+  &__subtitle {
+    line-height: 1.6;
+  }
   &__text {
-    margin-top: 20px;
+    margin-top: toRem(20);
     font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
+    font-size: toRem(16);
+    line-height: 1.6;
     color: var(--text-primary);
+    text-align: justify;
   }
   &__skills {
     display: grid;
-    grid-template: repeat(2, minmax(toRem(115), auto)) / repeat(2, toRem(260));
+    grid-template-columns: repeat(auto-fill, minmax(260px, auto));
     grid-auto-rows: 1fr;
-    column-gap: toRem(50);
+    column-gap: toRem(20);
     row-gap: toRem(20);
     &-item {
       display: grid;
       grid-template-columns: toRem(40) toRem(200);
-      column-gap: 20px;
+      column-gap: toRem(20);
     }
     &-circle {
       position: relative;
@@ -115,6 +133,10 @@
       @include before_circle;
       &:before {
         top: 0;
+      }
+      svg {
+        width: 100%;
+        aspect-ratio: 25 / 23;
       }
     }
     &-text {
@@ -144,14 +166,14 @@
       position: relative;
       padding-left: toRem(35);
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
         width: 15px;
         height: 15px;
-        background: $main-color;
+        background: var(--bg-primary);
         border-radius: 100%;
       }
     }
@@ -160,7 +182,7 @@
       li {
         position: relative;
         &:after {
-          content: "";
+          content: '';
           position: absolute;
           top: toRem(-16);
           left: toRem(7);
@@ -174,7 +196,7 @@
   &__item {
     position: relative;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: toRem(63);
       left: toRem(7);
@@ -201,10 +223,12 @@
       top: toRem(45);
       left: toRem(42);
       @include before_circle;
-      img {
+      svg {
         position: absolute;
         top: toRem(14);
         left: toRem(17);
+        width: toRem(25);
+        height: toRem(23);
       }
     }
     &-subtitle {
@@ -222,18 +246,22 @@
     margin-top: toRem(60);
     padding: 0 toRem(10);
     display: grid;
-    grid-template-columns: repeat(4, toRem(270));
+    grid-template-columns: repeat(auto-fill, minmax(toRem(270), auto));
     grid-template-rows: repeat(2, minmax(toRem(270), auto));
     grid-auto-rows: minmax(toRem(270), auto);
     gap: toRem(13);
   }
   &__item {
     padding: toRem(30) toRem(30) toRem(25) toRem(30);
-    border: 1px solid var(--text-primary);
+    border: toRem(1) solid var(--text-primary);
     &-img {
       display: flex;
       align-items: center;
       min-height: toRem(65);
+      svg {
+        width: toRem(65);
+        height: toRem(65);
+      }
     }
     h3 {
       margin-top: toRem(20);
@@ -320,10 +348,10 @@
 //====================================================================================================
 
 .price {
-  padding-top: torem(60);
+  padding-top: toRem(60);
   &__wrapper {
-    margin-top: torem(60);
-    padding: 0 torem(60);
+    margin-top: toRem(60);
+    padding: 0 toRem(60);
     display: grid;
     grid-template-columns: repeat(2, toRem(370));
     grid-template-rows: repeat(3, minmax(toRem(45), auto));
@@ -340,7 +368,7 @@
     align-content: space-between;
     padding-left: 25px;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: toRem(5);
       width: toRem(15);
@@ -395,13 +423,20 @@
     margin-top: toRem(20);
   }
   &__link {
-    margin-right: toRem(20);
-    transition: all 0.6s;
-    img {
+    &:not(:last-child) {
+      margin-right: toRem(20);
+    }
+    transition: all 0.3s;
+    &--rotate {
+      transform: rotate(90deg);
+    }
+    svg {
       max-width: toRem(30);
       max-height: toRem(30);
+      transition: all 0.3s ease;
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.03);
+        color: var(--bg-primary);
       }
     }
     &:hover {
@@ -440,6 +475,14 @@
     line-height: toRem(18);
     input {
       margin-right: toRem(10);
+      width: auto;
+    }
+  }
+  &__link-policy {
+    transition: all 0.3s ease;
+    &:hover {
+      text-decoration: underline;
+      color: var(--bg-primary);
     }
   }
   &__input {
@@ -450,6 +493,7 @@
       padding: 0 toRem(20);
       font-weight: 500;
       font-size: toRem(12);
+      border: toRem(1) solid var(--text-primary);
     }
   }
   &__textarea {
@@ -462,6 +506,7 @@
       padding: toRem(20);
       font-weight: 500;
       font-size: toRem(12);
+      border: toRem(1) solid var(--text-primary);
     }
   }
   &__btn {
@@ -473,7 +518,7 @@
 }
 
 //====================================================================================================
-@media (max-width: 1439px) {
+@media (max-width: toEm(1439)) {
   .sidepanel {
     display: none;
   }
@@ -721,7 +766,7 @@
     right: toRem(20);
   }
   .promo {
-    background: url("@img/bg.jpg") 15% / cover no-repeat;
+    background: url('@img/bg.jpg') 15% / cover no-repeat;
     &__btns {
       margin-top: toRem(32);
     }
