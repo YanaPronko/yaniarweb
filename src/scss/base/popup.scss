@@ -47,6 +47,7 @@ body::after {
 	align-items: center;
 }
 .popup__content {
+	position: relative;
 	visibility: hidden;
 	transform: scale(0);
 	transition: transform 0.3s ease 0s;
@@ -58,4 +59,16 @@ body::after {
 	.lock & {
 		visibility: visible;
 	}
+}
+
+.popup__text {
+	font-size: toRem(18);
+	line-height: 1.2;
+	text-align: center;
+}
+
+.popup__close {
+	position: absolute;
+	top: 3%;
+	right: 2%;
 }

@@ -28,6 +28,7 @@ import "../scss/style.scss";
 // ========================================================================================================================================================================================================================================================
 import * as flsFunctions from "./files/functions.js";
 
+
 /* Перевірка підтримки webp, додавання класу webp або no-webp для HTML */
 /* (i) необхідно для коректного відображення webp із css */
 // flsFunctions.isWebp();
@@ -119,7 +120,7 @@ flsForms.formFieldsInit({
 
 /* Надсилання форми */
 /* Документація: https://template.fls.guru/template-docs/rabota-s-formami.html */
-// flsForms.formSubmit();
+flsForms.formSubmit();
 
 /* Модуль форми "кількість" */
 // flsForms.formQuantity();
@@ -169,7 +170,7 @@ flsForms.formFieldsInit({
 Документація плагіна: https://swiperjs.com/
 Сніппет(HTML): swiper
 */
-// import "./files/sliders.js";
+import "./files/sliders.js";
 
 // ========================================================================================================================================================================================================================================================
 // Модулі роботи з прокручуванням сторінки ========================================================================================================================================================================================================================================================
@@ -192,7 +193,7 @@ flsForms.formFieldsInit({
 // Спостерігач за об'єктами з атрибутом data-watch
 // Документація: https://template.fls.guru/template-docs/modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html
 // Сніппет(HTML):
-// import './libs/watcher.js'
+import './libs/watcher.js'
 
 // Модуль поекранної прокрутки
 // Документація: https://template.fls.guru/template-docs/modul-poekrannoj-prokrutki-stranicy-fullpage.html

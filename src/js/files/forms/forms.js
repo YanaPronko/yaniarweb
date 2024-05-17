@@ -189,7 +189,7 @@ export function formSubmit() {
 					form.classList.remove('_sending');
 					formSent(form, responseResult);
 				} else {
-					alert("Помилка");
+					alert("Ошибка! Форма не отправилась...");
 					form.classList.remove('_sending');
 				}
 			} else if (form.hasAttribute('data-dev')) {	// Якщо режим розробки
@@ -223,7 +223,7 @@ export function formSubmit() {
 		// Очищуємо форму
 		formValidate.formClean(form);
 		// Повідомляємо до консолі
-		formLogging(`Форму відправлено!`);
+		formLogging(`Форма отправлена!`);
 	}
 	function formLogging(message) {
 		FLS(`[Форми]: ${message}`);

@@ -16,14 +16,14 @@
 	$email = $_POST['email'];
 	$text = $_POST['text'];
 
-	// $mail->isSMTP();
-	// $mail→SMTPDebug = 2;                                        //Send using SMTP
-	// $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-	// $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-	// $mail->Username   = 'yaniarz89';                     //SMTP username
-	// $mail->Password   = 'boge kads rdlr trkd';                               //SMTP password
-	// $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-	// $mail->Port       = 465;
+	$mail->isSMTP();
+	$mail→SMTPDebug = 2;                                        //Send using SMTP
+	$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+	$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+	$mail->Username   = 'yaniarz89@gmail.com';                     //SMTP username
+	$mail->Password   = 'boge kads rdlr trkd';                               //SMTP password
+	$mail->SMTPSecure = 'ssl' /* PHPMailer::ENCRYPTION_SMTPS */;           //Enable implicit TLS encryption
+	$mail->Port       = 465;
 
 
 	//Від кого лист

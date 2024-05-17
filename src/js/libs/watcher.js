@@ -17,7 +17,9 @@ class ScrollWatcher {
 		}
 		this.config = Object.assign(defaultConfig, props);
 		this.observer;
-		!document.documentElement.classList.contains('watcher') ? this.scrollWatcherRun() : null;
+		!document.documentElement.classList.contains('watcher')
+			? this.scrollWatcherRun()
+			: null;
 	}
 	// Оновлюємо конструктор
 	scrollWatcherUpdate() {
@@ -25,8 +27,11 @@ class ScrollWatcher {
 	}
 	// Запускаємо конструктор
 	scrollWatcherRun() {
+
 		document.documentElement.classList.add('watcher');
-		this.scrollWatcherConstructor(document.querySelectorAll('[data-watch]'));
+    this.scrollWatcherConstructor(document.querySelectorAll('[data-watch]'));
+		// document.documentElement.classList.add('watcher');
+		// this.scrollWatcherConstructor(document.querySelectorAll('[data-watch]'));
 	}
 	// Конструктор спостерігачів
 	scrollWatcherConstructor(items) {
@@ -117,11 +122,11 @@ class ScrollWatcher {
 	// Функція створення нового спостерігача зі своїми налаштуваннями
 	scrollWatcherCreate(configWatcher) {
 		console.log(configWatcher);
-		this.observer = new IntersectionObserver((entries, observer) => {
-			entries.forEach(entry => {
-				this.scrollWatcherCallback(entry, observer);
-			});
-		}, configWatcher);
+			this.observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          this.scrollWatcherCallback(entry, observer);
+        });
+      }, configWatcher);
 	}
 	// Функція ініціалізації спостерігача зі своїми налаштуваннями
 	scrollWatcherInit(items, configWatcher) {
@@ -181,4 +186,8 @@ class ScrollWatcher {
 	}
 }
 // Запускаємо та додаємо в об'єкт модулів
-flsModules.watcher = new ScrollWatcher({});
+window.addEventListener('load', () => {
+	console.log("DOM LOADED");
+	flsModules.watcher = new ScrollWatcher({});
+});
+
