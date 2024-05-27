@@ -3,7 +3,7 @@ import { isMobile } from './functions.js';
 import { bodyUnlock, bodyLock } from './functions.js';
 // Підключення списку активних модулів
 import { flsModules } from './modules.js';
-import Swiper from 'swiper';
+import { i18nObj } from './translate.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   // Menu
@@ -47,7 +47,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // THEME
 
   const savedTheme = handleLocalStorage('getItem', 'user-theme');
-  console.log(savedTheme);
   const rootElement = document.documentElement;
   const actionTheme = document.querySelector('.sidepanel__action');
   const resetBtn = document.querySelector('.reset');
@@ -128,4 +127,36 @@ window.addEventListener('DOMContentLoaded', () => {
 
   loadTheme();
 
+  const switcher = document.querySelector('.sidepanel__lang-switch');
+  switcher.addEventListener('click', handleTranslate);
+
+  // Translate
+  const elemsForTranslate = document.querySelectorAll('[data-i18n]');
+  window.addEventListener('load', setLang);
+
+  function handleTranslate(e) {
+    const target = e.target.closest('input');
+    const lang = target?.checked ? 'en' : 'ru';
+    if (elemsForTranslate) {
+      translate(lang, elemsForTranslate);
+      handleLocalStorage('setItem', 'lang', lang);
+    }
+  }
+
+  function setLang() {
+    const lang = handleLocalStorage('getItem', 'lang');
+    const langInput = document.querySelector('#switch-check');
+    langInput.checked = lang === 'en' ? true : false;
+    if (lang && elemsForTranslate) {
+      translate(lang, elemsForTranslate);
+    }
+  }
+
+  function translate(lang, elems) {
+    elems.forEach(
+      (elem) => (elem.textContent = i18nObj[lang][elem.dataset.i18n])
+    );
+  }
+
 });
+

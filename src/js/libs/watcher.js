@@ -121,7 +121,6 @@ class ScrollWatcher {
 	}
 	// Функція створення нового спостерігача зі своїми налаштуваннями
 	scrollWatcherCreate(configWatcher) {
-		console.log(configWatcher);
 			this.observer = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           this.scrollWatcherCallback(entry, observer);
@@ -187,7 +186,6 @@ class ScrollWatcher {
 }
 // Запускаємо та додаємо в об'єкт модулів
 window.addEventListener('load', () => {
-	console.log("DOM LOADED");
 	flsModules.watcher = new ScrollWatcher({});
 });
 

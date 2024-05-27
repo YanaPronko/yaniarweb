@@ -26,8 +26,11 @@ import '../../scss/libs/swiper.scss';
 
 // Ініціалізація слайдерів
 function initSliders() {
-  if (document.querySelectorAll('.portfolio__slider')) {
+  const sliders = document.querySelectorAll('.portfolio__slider');
+  const desktopMedia = window.matchMedia('(min-width: 992px)').matches;
 
+
+  if (sliders && desktopMedia) {
     const slider1 = new Swiper('.portfolio__slider--1', {
       modules: [EffectCube, Controller],
       observer: true,
@@ -36,7 +39,6 @@ function initSliders() {
       spaceBetween: 0,
       speed: 500,
       loop: true,
-      //preloadImages: false,
       lazy: true,
 
       // Ефекти
@@ -59,9 +61,7 @@ function initSliders() {
       slidesPerView: 1,
       spaceBetween: 0,
       speed: 500,
-
       loop: true,
-      //preloadImages: false,
       lazy: true,
 
       // Ефекти
@@ -83,10 +83,8 @@ function initSliders() {
       observeParents: true,
       slidesPerView: 1,
       spaceBetween: 0,
-      //autoHeight: true,
       speed: 500,
       loop: true,
-      //preloadImages: false,
       lazy: true,
 
       // Ефекти
@@ -107,6 +105,29 @@ function initSliders() {
     slider2.controller.control = [slider3, slider1];
     slider2.params.controller.inverse = true;
     slider3.controller.control = slider2;
+  } else {
+    const slider1 = new Swiper('.portfolio__slider--2', {
+      modules: [EffectCube, Controller],
+      observer: true,
+      observeParents: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      speed: 500,
+      loop: true,
+      lazy: true,
+
+      // Ефекти
+      effect: 'cube',
+      grabCursor: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      // Події
+      on: {},
+    });
   }
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)

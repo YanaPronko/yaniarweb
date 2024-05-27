@@ -9,7 +9,8 @@
 .title {
   font-weight: bold;
   font-size: toRem(36);
-  line-height: toRem(50);
+  line-height: 1.6;
+  max-width: toRem(500);
   &__fz14 {
     font-size: toRem(14);
     line-height: toRem(21);
@@ -31,6 +32,7 @@
   }
   &__section-title {
     position: relative;
+    margin: 0 auto toRem(6) auto;
     text-align: center;
     @include before_circle;
     &:before {
@@ -40,6 +42,7 @@
     }
   }
   &__section-subtitle {
+    margin: 0 auto;
     text-align: center;
   }
 }
@@ -71,7 +74,7 @@
     display: block;
     width: toRem(30);
     height: toRem(3);
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
   }
   span.long {
     width: toRem(36);
@@ -119,8 +122,12 @@
     font-weight: bold;
     font-size: toRem(24);
     line-height: toRem(36);
+    text-transform: uppercase;
+    a {
+      transition: text-decoration 0.6s ease;
+    }
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       left: toRem(-35);
       top: toRem(10);
@@ -131,6 +138,9 @@
       transition: 0.6s;
     }
     &:hover {
+      a {
+        text-decoration: underline;
+      }
       &:before {
         background-color: var(--text-secondary);
       }
